@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
 <body>
+
+<?php Include "header.php"; ?>
 
 <?php
 //include "db_connect.php";
