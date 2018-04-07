@@ -7,49 +7,58 @@ if (file_exists($file) === FALSE)
 	mkdir('user_base');
 if ($_POST['login'] !== "" && $_POST['passwd'] !== "" && $_POST['phone-nbr'] !== "" && $_POST['email'] !== "" && $_POST['name'] !== "" && $_POST['submit'] == 'OK')
 {
-	if (strlen($_POST['phone-nbr']) == 12 && strpos($_POST['phone-nbr'], "+380") !== FALSE)
+	if (strlen($_POST['phone-nbr']) == 13 && strpos($_POST['phone-nbr'], "+380") !== FALSE)
 	{
-		$email = test_input($_POST['email']);
-		if (filter_var($email, FILTER_VALIDATE_EMAIL))
+		if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 		{
-			if (preg_match("/^[a-zA-Z'-]/", $_POST['name']))
+			if (ctype_alpha(str_replace(' ', '', $_POST['name'])))
 			{
 				$arr['login'] = $_POST['login'];
 				$arr['passwd'] = hash('whirlpool', $_POST['passwd']);
 				$arr['phone-nbr'] = $_POST['phone-nbr'];
 				$arr['email'] = $_POST['email'];
 				$arr['name'] = $_POST['name'];
-				
+
 				$file_cont = unserialize(file_get_contents($file));
+				$error = -1;
 				foreach ($file_cont as $key => $value)
 				{
 					if ($value['login'] === $_POST['login'])
-					{
-						$message = "This login has already taken";
 						$error = 1;
-						return ;
-					}
 				}
-				if ($error !== 1)
+				if ($error === 1)
+					$message = "This login has already taken. ";
+				else
 				{
 					$file_cont[] = $arr;
-					$message = "Your account is created. Now, please ";
+					$message = "Your account is created. ";
 				}
 				$serializedData = serialize($file_cont);
 				file_put_contents($file, $serializedData);
 			}
 			else
-				$message = "Only latin symbols";
+			{
+				$message = "Only latin symbols. ";
+				$error = 1;
+			}
 		}
 		else
-			$message = "Invalid email format";
+		{
+			$message = "Invalid email format. ";
+			$error = 1;
+		}
+
 	}
 	else
-		$message = "Wrong phone number";
+	{
+		$message = "Wrong phone number. ";
+		$error = 1;
+	}
 }
 else
 {
-	$message = "Please fill all fields";
+	$message = "Please fill all fields. ";
+	$error = 1;
 	return ;
 }
 
@@ -109,13 +118,12 @@ else
 <body>
 	<div class="container">
 		<p class="message">
-			<?php echo $message;?>
-		<?php 
-			if ($error !== 1)
-				echo '<a href="../sign-in.html">login.</a>';
-			else
-				echo '<a href="../create.html">Create an account</a>';
-		?>
+			<?php echo $message;
+				if ($error === -1)
+					echo '<a href="../sign-in.html">Now, please login.</a>';
+				else
+					echo '<a href="../create.html">Create an account</a>';
+			?>
 		</p>
 	</div>
 </body>

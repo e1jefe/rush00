@@ -36,15 +36,17 @@
 						<li><a href="#buy" class="buy">Buy now</a></li>
 						<?php 
 							if($_SESSION['is_log'] == TRUE)
-								// echo "<a href='/php/logout.php'>Logout: " . $_SESSION['loggued_on_user'] . '</a>';
+							{
 								echo '<li><a href="/php/logout.php">Currently logged: ' . $_SESSION["loggued_on_user"] . '</a>
 							<ul>
 							<li><a href="#" class="kostyl"></a></li>
 								<li><a href="php/change-pass.php">change password</a></li>
       							<li><a href="php/my-cart.php">review my cart</a></li>
       							<li><a href="php/logout.php">logout</a></li>
+      							<li><a href="php/delet-me.php">delete account</a></li>
     						</ul>
   							</li>';
+  							}
 							else
 							    echo '<li><a href="sign-in.html" target="_self" class="last">Login/Register</a><li>';
 						?>

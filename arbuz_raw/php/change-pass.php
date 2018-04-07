@@ -1,10 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="
+		width=device-width,
+		height=device-height,
+		initial-scale=1,
+		minimum-scale=1,
+		maximum-scale=1,
+		user-scalable=0"/>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/authorization.css">
+	<style>
+		.form{
+			margin: 0 auto 10px;
+		}
+	</style>
+	<title>Fructo</title>
+</head>
+<section class="login-page">
+  <div class="form">
+		<form class="register-form" action="change-pass.php" method="post">
+	 	<p class="register-form_title">
+			You are about to change your password
+		</p>
+	  	<input type="text" name="login" placeholder="username" value="" />
+	  	<input type="password" name="oldpw" placeholder="old password" value=""/>
+	  	<input type="password" name="newpw" placeholder="new password" value=""/>
+	  	<button name="submit" value="OK" />OK</button>
+		</form>
+	</div>
+</section>
+</html>
+
 <?php
 
 $file = 'user_base/passwd';
-
+$error = 1;
 if ($_POST['login'] !== "" && $_POST['oldpw'] !== "" && $_POST['newpw'] !== "" && $_POST['submit'] == 'OK' && $_POST['oldpw'] !== $_POST['newpw'])
 {
-	$error = 1;
 	$file_cont = unserialize(file_get_contents($file));
 	foreach ($file_cont as $key => $value)
 	{
@@ -25,6 +59,7 @@ if ($error === 1)
 	$message = "Oups, please try againe";
 
 ?>
+
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -48,11 +83,10 @@ if ($error === 1)
 			-moz-osx-font-smoothing: grayscale;      
 		}
 		.container {
-			margin: 50px auto;
-			padding: 10%;
+			margin: 5px auto;
 		}
 		.message {
-			font-size: 50px;
+			font-size: 32px;
 			color: #fff;
 			display: block;
 			margin: 0 auto;
@@ -64,15 +98,7 @@ if ($error === 1)
 			font-style: italic;
 		}
 		a:hover, a:active {
-		    outline: none;
-			background: rgba(0, 0, 0, 0.4);
-						-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
-						-moz-transition-duration: 0.8s;
-						-moz-transition-timing-function: ease-out;
-						-webkit-transition-property: rgba(0, 0, 0, 0.4);
-						-webkit-transition-duration: 1s;
-						-o-transition-property: rgba(0, 0, 0, 0.4);
-						-o-transition-duration: 0.8s;
+			text-decoration: underline;
 		}
 	</style>
 </head>
@@ -81,9 +107,9 @@ if ($error === 1)
 		<p class="message">
 		<?php 
 			if ($error === 0)
-				echo $message . '<a href="../index.php"> Back to shopping.</a>';
+				echo $message . '<a href="../index.php"> Back to shopping</a>';
 			else
-				echo '<a href="change-pass.php">' . $message . '</a>';
+				echo '<i>' . $message . '</i>';
 		?>
 		</p>
 	</div>
