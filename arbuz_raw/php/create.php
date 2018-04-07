@@ -1,8 +1,8 @@
 <?php
 
-$file = 'private/passwd';
+$file = 'user_base/passwd';
 if (file_exists($file) === FALSE)
-	mkdir('private');
+	mkdir('user_base');
 if ($_POST['login'] !== "" && $_POST['passwd'] !== "" && $_POST['submit'] == 'OK')
 {
 	$arr['login'] = $_POST['login'];
