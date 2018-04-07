@@ -1,4 +1,4 @@
-#Rush00 , internet shop, colloboration with @BertaFly#
+## Rush00 , internet shop, colloboration with @BertaFly
 
 
 42-Piscine-PHP
