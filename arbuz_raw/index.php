@@ -35,7 +35,7 @@
 						<li><a href="#features">Features</a></li>
 						<li><a href="php/mybasket.php" class="buy">Buy now</a></li>
 						<?php 
-							if($_SESSION['is_log'] == TRUE)
+							if($_SESSION['is_log'] === TRUE)
 							{
 								echo '<li><a href="/php/logout.php">Currently logged: ' . $_SESSION["loggued_on_user"] . '</a>
 							<ul>
