@@ -1,43 +1,30 @@
 <?php
 
-session_start();
+$file = 'user_base/passwd';
 
-function auth($login, $passwd)
+if ($_POST['login'] !== "" && $_POST['oldpw'] !== "" && $_POST['newpw'] !== "" && $_POST['submit'] == 'OK' && $_POST['oldpw'] !== $_POST['newpw'])
 {
-	if ($login !== "" && $passwd !== "")
+	$error = 1;
+	$file_cont = unserialize(file_get_contents($file));
+	foreach ($file_cont as $key => $value)
 	{
-		$file = 'user_base/passwd';
-		$pass_hash = hash('whirlpool', $passwd);
-		$file_cont = unserialize(file_get_contents($file));
-		foreach ($file_cont as $key => $account)
+		if ($value['login'] === $_POST['login'])
 		{
-			if ($account['login'] === $login)
+			if ($value['passwd'] === hash('whirlpool', $_POST['oldpw']))
 			{
-				if ($account['passwd'] === $pass_hash)
-					return TRUE;
-			}  
+				$file_cont[$key]['passwd'] = hash('whirlpool', $_POST['newpw']);
+				$serializedData = serialize($file_cont);
+				file_put_contents($file, $serializedData);
+				$error = 0;
+				$message = "Password was successfully changed. ";
+			}
 		}
 	}
-	return FALSE;
 }
-
-$error = 0;
-if (auth($_POST['login'], $_POST['passwd']) === TRUE)
-{
-	$_SESSION['loggued_on_user'] = $_POST['login'];
-	$_SESSION['is_log'] = TRUE;
-	$message = "Your account is autorized.";
-}
-else
-{
-	$_SESSION['loggued_on_user'] = "";
-	$_SESSION['is_log'] = FALSE;
-	$message = "Wrong login or password. ";
-	$error = 1;
-}
+if ($error === 1)
+	$message = "Oups, please try againe";
 
 ?>
-
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -62,7 +49,7 @@ else
 		}
 		.container {
 			margin: 50px auto;
-			padding-top: 10%;
+			padding: 10%;
 		}
 		.message {
 			font-size: 50px;
@@ -77,7 +64,7 @@ else
 			font-style: italic;
 		}
 		a:hover, a:active {
-			outline: none;
+		    outline: none;
 			background: rgba(0, 0, 0, 0.4);
 						-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
 						-moz-transition-duration: 0.8s;
@@ -92,16 +79,12 @@ else
 <body>
 	<div class="container">
 		<p class="message">
-			<?php 
-			if ($error !== 1)
-			{
-				echo $message . ' To continue click ' . '<a href="../index.php">here.</a>';
-				// header("index.html");
-    			exit;
-    		}
+		<?php 
+			if ($error === 0)
+				echo $message . '<a href="../index.php"> Back to shopping.</a>';
 			else
-				echo $message . '<a href="../sign-in.html">Please try again.</a>';
-			?>
+				echo '<a href="change-pass.php">' . $message . '</a>';
+		?>
 		</p>
 	</div>
 </body>

@@ -5,31 +5,51 @@ session_start();
 $file = 'user_base/passwd';
 if (file_exists($file) === FALSE)
 	mkdir('user_base');
-if ($_POST['login'] !== "" && $_POST['passwd'] !== "" && $_POST['submit'] == 'OK')
+if ($_POST['login'] !== "" && $_POST['passwd'] !== "" && $_POST['phone-nbr'] !== "" && $_POST['email'] !== "" && $_POST['name'] !== "" && $_POST['submit'] == 'OK')
 {
-	$arr['login'] = $_POST['login'];
-	$arr['passwd'] = hash('whirlpool', $_POST['passwd']);
-	$file_cont = unserialize(file_get_contents($file));
-	foreach ($file_cont as $key => $value)
+	if (strlen($_POST['phone-nbr']) == 12 && strpos($_POST['phone-nbr'], "+380") !== FALSE)
 	{
-		if ($value['login'] === $_POST['login'])
+		$email = test_input($_POST['email']);
+		if (filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-			$message = "This login has already taken";
-			$error = 1;
-			return ;
+			if (preg_match("/^[a-zA-Z'-]/", $_POST['name']))
+			{
+				$arr['login'] = $_POST['login'];
+				$arr['passwd'] = hash('whirlpool', $_POST['passwd']);
+				$arr['phone-nbr'] = $_POST['phone-nbr'];
+				$arr['email'] = $_POST['email'];
+				$arr['name'] = $_POST['name'];
+				
+				$file_cont = unserialize(file_get_contents($file));
+				foreach ($file_cont as $key => $value)
+				{
+					if ($value['login'] === $_POST['login'])
+					{
+						$message = "This login has already taken";
+						$error = 1;
+						return ;
+					}
+				}
+				if ($error !== 1)
+				{
+					$file_cont[] = $arr;
+					$message = "Your account is created. Now, please ";
+				}
+				$serializedData = serialize($file_cont);
+				file_put_contents($file, $serializedData);
+			}
+			else
+				$message = "Only latin symbols";
 		}
+		else
+			$message = "Invalid email format";
 	}
-	if ($error !== 1)
-	{
-		$file_cont[] = $arr;
-		$message = "Your account is created. Now, please ";
-	}
-	$serializedData = serialize($file_cont);
-	file_put_contents($file, $serializedData);
+	else
+		$message = "Wrong phone number";
 }
 else
 {
-	$message = "Please enter login and password";
+	$message = "Please fill all fields";
 	return ;
 }
 
@@ -76,13 +96,13 @@ else
 		a:hover, a:active {
 		    outline: none;
 			background: rgba(0, 0, 0, 0.4);
-						-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
-						-moz-transition-duration: 0.8s;
-						-moz-transition-timing-function: ease-out;
-						-webkit-transition-property: rgba(0, 0, 0, 0.4);
-						-webkit-transition-duration: 1s;
-						-o-transition-property: rgba(0, 0, 0, 0.4);
-						-o-transition-duration: 0.8s;
+			-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
+			-moz-transition-duration: 0.8s;
+			-moz-transition-timing-function: ease-out;
+			-webkit-transition-property: rgba(0, 0, 0, 0.4);
+			-webkit-transition-duration: 1s;
+			-o-transition-property: rgba(0, 0, 0, 0.4);
+			-o-transition-duration: 0.8s;
 		}
 	</style>
 </head>
@@ -92,7 +112,7 @@ else
 			<?php echo $message;?>
 		<?php 
 			if ($error !== 1)
-				echo '<a href="../sign_in.html">login.</a>';
+				echo '<a href="../sign-in.html">login.</a>';
 			else
 				echo '<a href="../create.html">Create an account</a>';
 		?>

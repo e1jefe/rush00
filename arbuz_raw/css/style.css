@@ -42,9 +42,9 @@ q:before, q:after {
 }
 
 /* Don't kill focus outline for keyboard users: http://24ways.org/2009/dont-lose-your-focus */
-a:hover, a:active {
+/*a:hover, a:active {
     outline: none;
-}
+}*/
 
 table {
 	border-collapse: collapse;
@@ -62,10 +62,10 @@ img{
     width: 100%;
 }
 
-a{
+/*a{
 	text-decoration: none;
     color: inherit;
-}
+}*/
 
 .clearfix {
 	content: '';
@@ -106,29 +106,17 @@ a{
     			line-height: 36px;
     		}
 
+    	.menu-top {
+    		position: relative;
+    	}
     	.menu-items{
     		line-height: 41px;
-    		float: right;
+    		right: 0;
+    		top: 0;
+    		position: absolute;
+    		min-width: 578px;
+    		height: 250px;
     	}
-
-    		.menu-items a{
-    			display: inline-block;
-    			text-decoration: none;
-    			color: #fff;
-				font-family: "MyriadPro";
-				padding: 0 20px;
-				font-size: 21px;
-    		}
-
-    			.menu-items a:last-child{
-    				border: 3px solid #fff;
-    			}
-
-    			.menu-items a:last-child:hover{
-    				color: #000;
-    				background: #f0f0f0;
-    			}
-
     			.menu-items a:hover{
     				background: rgba(0, 0, 0, 0.4);
 	    				-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
@@ -154,6 +142,77 @@ a{
 		#menu-checkbox{
 			display: none;
 		}
+
+
+/*USER OPTIONS*/
+
+#primary_nav_wrap ul
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0;
+	width: 100%;
+}
+
+#primary_nav_wrap ul a 
+{
+	display:block;
+	color: #fff;
+	font-size: 21px;
+	padding:0 20px;
+	font-family: "MyriadPro";
+	text-decoration: none;
+}
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+.kostyl
+{
+	height: 41px;
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:0;
+	text-align: center;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	transition-property: background;
+  	transition-duration: 1s;
+		-moz-transition-property: background; /*SMOOTH CHANGE BG FOR HOVER*/
+			-moz-transition-duration: 0.8s;
+			-moz-transition-timing-function: ease-out;
+			-webkit-transition-property: background;
+			-webkit-transition-duration: 1s;
+			-o-transition-property: background;
+			-o-transition-duration: 0.8s;
+}
+
+#primary_nav_wrap ul ul li
+{
+	float:none;
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block;
+}
 
 /*MENU FOR MEDIUM DEVISES*/
 
@@ -208,7 +267,6 @@ a{
     .menu-items a:last-child{
         border: 2px solid #fff;
     }
-
     
 }
 
