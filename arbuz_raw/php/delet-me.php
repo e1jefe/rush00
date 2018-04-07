@@ -23,11 +23,10 @@ if ($_SESSION['is_log'] === TRUE && $_SESSION['loggued_on_user'] !== "")
 			$message = "Your account was deleted. ";
 			$_SESSION['is_log'] = FALSE;
 			unset($_SESSION['loggued_on_user']);
-			session_destroy();
 		}
 	}
 }
-
+	
 ?>
 
 <html>
