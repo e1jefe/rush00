@@ -33,7 +33,7 @@
 						<li><a href="#home">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#features">Features</a></li>
-						<li><a href="#buy" class="buy">Buy now</a></li>
+						<li><a href="php/mybasket.php" class="buy">Buy now</a></li>
 						<?php 
 							if($_SESSION['is_log'] == TRUE)
 							{
