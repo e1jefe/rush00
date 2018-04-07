@@ -13,7 +13,10 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Fructo</title>
 </head>
-<?php session_start(); ?>
+<?php session_start(); 
+$_SESSION["loggued_on_user"];
+$_SESSION['is_log'];
+?>
 <body><a name="home"></a>
 	<section class="home">
 		<div class="container">
