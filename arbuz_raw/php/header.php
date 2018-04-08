@@ -22,7 +22,7 @@
 				<ul>
 				<li><a href="#" class="kostyl"></a></li>
 					<li><a href="change-pass.php">change password</a></li>
-						<li><a href="my-cart.php">review my cart</a></li>
+						<li><a href="basket.php">review my cart</a></li>
 						<li><a href="logout.php">logout</a></li>
 						<li><a href="delet-me.php">delete account</a></li>
 				</ul>

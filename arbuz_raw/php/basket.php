@@ -2,10 +2,10 @@
 error_reporting(0);
 session_start();
 $total=0;
-$conn = new PDO("mysql:host=localhost;dbname=db-shop", 'root', '9581590');
+$conn = new PDO("mysql:host=localhost;dbname=db-shop", 'root', 'risha1');
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $action = isset($_GET['action'])?$_GET['action']:"";
-//Add to cart
+
 if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
 
     $query = "SELECT * FROM products WHERE sku=:sku";
@@ -14,7 +14,7 @@ if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
     $stmt->execute();
     $product = $stmt->fetch();
 
-    $currentQty = $_SESSION['products'][$_POST['sku']]['qty']+1; //Incrementing the product qty in cart
+    $currentQty = $_SESSION['products'][$_POST['sku']]['qty']+1; 
     $_SESSION['products'][$_POST['sku']] =array('qty'=>$currentQty,'title'=>$product['title'],'img_url'=>$product['img_url'],'price'=>$product['price']);
     $product='';
     header("Location:basket.php");
@@ -45,11 +45,17 @@ $products = $stmt->fetchAll();
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="
+        width=device-width,
+        height=device-height,
+        initial-scale=1,
+        minimum-scale=1,
+        maximum-scale=1,
+        user-scalable=0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>My cart</title>
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -61,6 +67,7 @@ $products = $stmt->fetchAll();
             </div>
             <div class="pull-right" style="margin-top:7px;margin-right:7px;"><a href="basket.php?action=emptyall" class="btn btn-info">Empty cart</a></div>
             <div class="pull-fff" style="margin-top:7px;margin-right:20px;"><a href="https://send.monobank.com.ua/2tWzbzQhr" class="btn btn-info">Pay online</a></div>
+            <div class="pull-fff" style="margin-top:7px;margin-right:20px;"><a href="buy.php?id=<?=$_SESSION['is_log']?>" class="btn btn-info">Buy items</a></div>
         </nav>
         <table class="table table-striped">
             <thead>
@@ -87,7 +94,7 @@ $products = $stmt->fetchAll();
     <?php endif;?>
     <nav class="navbar navbar-inverse" style="background:#528354;">
         <div class="container-fluid">
-            <div class="navbar-header"> <a class="navbar-brand" href="#" style="color:#FFFFFF;">More products</a> </div>
+            <div class="navbar-header"> <a class="navbar-brand" href="index.php" style="color:#FFFFFF;">Back to main page</a> </div>
         </div>
     </nav>
     <div class="row">

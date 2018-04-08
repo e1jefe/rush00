@@ -100,11 +100,14 @@ else
 			<?php 
 			if ($error !== 1)
 			{
-				echo $message . ' To continue click ' . '<a href="index.php">here.</a>';
-    			exit;
+				echo $message;
+				header("refresh:3;url=index.php");
     		}
 			else
-				echo $message . '<a href="sign-in.php">Please try again.</a>';
+			{
+				echo $message;
+				header("refresh:3;url=sign-in.php");
+			}
 			?>
 		</p>
 	</div>

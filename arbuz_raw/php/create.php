@@ -127,9 +127,12 @@ else
 			<?php
 				echo $message;
 				if ($error === -1)
-					echo '<a href="index.php">Back to main page.</a>';
+					// echo '<a href="index.php">Back to main page.</a>';
+					header("refresh:3;url=index.php");
 				else
-					echo '<a href="create1.php">Create an account</a>';
+					// echo '<a href="create1.php">Create an account</a>';
+					header("refresh:3;url=create1.php");
+
 			?>
 		</p>
 	</div>

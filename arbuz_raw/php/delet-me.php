@@ -83,7 +83,8 @@ if ($_SESSION['is_log'] === TRUE && $_SESSION['loggued_on_user'] !== "")
 	<div class="container">
 		<p class="message">
 			<?php 
-				echo $message . '<a href="index.php">Back on main page</a>';
+				echo $message;
+				header("refresh:3;url=index.php");
 			?>
 		</p>
 	</div>

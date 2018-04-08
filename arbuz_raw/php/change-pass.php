@@ -112,7 +112,10 @@ if ($error === 1)
 		<p class="message">
 		<?php 
 			if ($error === 0)
-				echo $message . '<a href="index.php"> Back to shopping</a>';
+			{
+				echo $message;
+				header("refresh:3;url=index.php");
+			}
 			else if ($_POST['submit'] === 'OK' && $error === 1)
 				echo '<i>' . $message . '</i>';
 		?>

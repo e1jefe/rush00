@@ -28,7 +28,7 @@ function get_goods($link, $param)
 function add_product($product, $link)
 {
     $query = "INSERT INTO products (title, price, category, img_url)
-       VALUES ({$product['title']}, $product[price], $product[category], $product[img_url]);";
+       VALUES ({$product[title]}, $product[price], $product[category], $product[img_url]);";
     return (mysqli_query($link, $query));
 }
 
@@ -62,10 +62,10 @@ function delete_product($product, $link)
     <div class="price-amount">
       <?=$v["price"]."$"?>
     </div>
-    <button type="submit" formmethod="post">Add to cart</button>
+    <form method="post" action="basket.php"><button type="submit" name="sku" value="<?=$v['sku']?>">Add to cart</button></form>
     <div class="details">
       <p>
-        <?=$v['id_product']?>
+        <?=$v['sku']?>
       </p>
       <p>
         <?=$v['category']?>
