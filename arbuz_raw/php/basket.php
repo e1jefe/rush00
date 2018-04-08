@@ -14,7 +14,11 @@ if($action=='addcart' && $_SERVER['REQUEST_METHOD']=='POST') {
     $stmt->execute();
     $product = $stmt->fetch();
 
+<<<<<<< HEAD
     $currentQty = $_SESSION['products'][$_POST['sku']]['qty']+1; 
+=======
+    $currentQty = $_SESSION['products'][$_POST['sku']]['qty']+1;
+>>>>>>> 31c72ae2d677f76903d41829c842b825e78841b0
     $_SESSION['products'][$_POST['sku']] =array('qty'=>$currentQty,'title'=>$product['title'],'img_url'=>$product['img_url'],'price'=>$product['price']);
     $product='';
     header("Location:basket.php");
@@ -39,7 +43,7 @@ $query = "SELECT * FROM products";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $products = $stmt->fetchAll();
-?>
+//?>
 
 <!DOCTYPE html>
 <html lang="en">
