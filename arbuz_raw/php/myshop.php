@@ -12,12 +12,17 @@ require_once 'db_connect.php';
 
 <?php
 
-function get_goods($link)
+function get_goods($link, $param)
 {
+  if ($param === 'fruits')
+    $sql = "SELECT * FROM products WHERE category='Fruits'";
+  else if ($param === 'vegies')
+    $sql = "SELECT * FROM products WHERE category='Vegetables'";
+  else
     $sql = "SELECT * FROM products";
-    $result = mysqli_query($link, $sql);
-    $data = mysqli_fetch_all($result, 1);
-    return $data;
+  $result = mysqli_query($link, $sql);
+  $data = mysqli_fetch_all($result, 1);
+  return $data;
 }
 
 function add_product($product, $link)
@@ -45,7 +50,7 @@ function delete_product($product, $link)
 
 ?>
 <?php
-  $goods = get_goods($link);
+  $goods = get_goods($link, $_POST['category']);
 ?>
 
 <?php foreach ($goods as $v): ?>

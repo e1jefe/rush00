@@ -109,24 +109,24 @@
 				<aside class="category">
 				    <ul class="menu">
 				      <li class="menu_item">
-				        <a href="#">fruits</a>
+				      	<form action="index.php" method="post"> <input type="submit" name="category" value="fruits">fruits<a href="#buy"></a></input></form>
 				        <ul class="sub-menu">
 				          <li class="sub-menu_item">
-				            <a href="#">paket</a>
+				            <button type="submit" formmethod="post" name="fruits-pac" value="OK">paket</button>
 				          </li>
 				          <li class="sub-menu_item">
-				            <a href="#">ne paket</a>
+				            <button type="submit" formmethod="post" name="fruits-ne-pac" value="OK">ne paket</button>
 				          </li>
 				        </ul>
 				      </li>
 				      <li class="menu_item">
-				        <a href="#">vegies</a>
+				        <button type="submit" formmethod="post" name="category" value="vegies">vegies</button>
 				        <ul class="sub-menu">
 				          <li class="sub-menu_item">
-				            <a href="#">paket</a>
+				            <button type="submit" formmethod="post" name="vegies-pac" value="OK">paket
 				          </li>
 				          <li class="sub-menu_item">
-				            <a href="#">ne paket</a>
+				            <button type="submit" formmethod="post" name="vegies-ne-pac" value="OK">ne paket</button>
 				          </li>
 				        </ul>
 				      </li>
@@ -168,3 +168,35 @@
 
 </body>
 </html>
+
+
+<!-- <?php foreach ($goods as $v)
+{
+  if ($_POST['fruits-pac'] === "OK" && $v['category'] === "fruits" && $v['sub_category'] === "packed")
+  {
+    $arr[] = $v;
+  }
+  else if ($_POST['fruits-ne-pac'] === "OK" && $v['category'] === "fruits" && $v['sub_category'] === "non packed")
+  {
+    $arr[] = $v;
+  }
+  else if ($_POST['vegies-pac'] === "OK" && $v['category'] === "vegetables" && $v['sub_category'] === "packed")
+  {
+    $arr[] = $v;
+  }
+  else if ($_POST['vegies-ne-pac'] === "OK" && $v['category'] === "vegetables" && $v['sub_category'] === "non packed")
+  {
+    $arr[] = $v;
+  }
+  else if ($_POST['fruits'] === "fruits" && $v['category'] === "fruits")
+  {
+    $arr[] = $v;
+  }
+  else if ($_POST['vegies'] === "vegies" && $v['category'] === "vegetables")
+  {
+    $arr = $v;
+  }
+  else
+    continue ;
+}
+?> -->
