@@ -5,7 +5,6 @@
 	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
 <?php Include "header.php"; ?>
 
 
@@ -26,7 +25,7 @@ function get_goods($link)
 function add_product($product, $link)
 {
     $query = "INSERT INTO products (title, price, category, img_url)
-       VALUES ({$product['title']}, $product[price], $product[category], $product[img_url]);";
+       VALUES ({$product['title']}, {$product['price']}, {$product['category']}, {$product['img_url']});";
     return (mysqli_query($link, $query));
 }
 
@@ -56,6 +55,5 @@ $goods = get_goods($link);
     </pre>
     <li><?=$v["title"]?><img src=" <?=$v['img_url']?>"> <?=$v["price"]."$"?></li>
 <?php endforeach; ?>
-
 </body>
 </html>
