@@ -93,22 +93,46 @@
 	<section class="price"><a name="buy"></a>
 		<div class="container">
 			<div class="price-title">
-				By fructs
+				Buy fructs
 			</div>
 			<div class="price-text">
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Always freash.
 				</p>
 			</div>
 			<div class="price-text">
 				<p>
-					Lorem ipsum dolor sit amet.
+					The most hight quality.
 				</p>
 			</div>
 			<div class="price-policy">
-				
-
-
+				<aside class="category">
+				    <ul class="menu">
+				      <li class="menu_item">
+				        <a href="#">fruits</a>
+				        <ul class="sub-menu">
+				          <li class="sub-menu_item">
+				            <a href="#">paket</a>
+				          </li>
+				          <li class="sub-menu_item">
+				            <a href="#">ne paket</a>
+				          </li>
+				        </ul>
+				      </li>
+				      <li class="menu_item">
+				        <a href="#">vegies</a>
+				        <ul class="sub-menu">
+				          <li class="sub-menu_item">
+				            <a href="#">paket</a>
+				          </li>
+				          <li class="sub-menu_item">
+				            <a href="#">ne paket</a>
+				          </li>
+				        </ul>
+				      </li>
+				    </ul>
+				</aside>
+				<?php Include "myshop.php"; ?>
 			</div>
 		</div>
 	</section>

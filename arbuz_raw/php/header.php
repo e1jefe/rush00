@@ -14,7 +14,7 @@
 			<li><a href="index.php">Home</a></li>
 			<li><a href="index.php">About</a></li>
 			<li><a href="index.php">Features</a></li>
-			<li><a href="mybasket.php" class="buy">Buy now</a></li>
+			<li><a href="#buy" class="buy">Buy now</a></li>
 			<?php 
 				if(isset($_SESSION['is_log']) && $_SESSION['is_log'] === TRUE)
 				{

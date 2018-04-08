@@ -40,6 +40,8 @@ if ($_SESSION['is_log'] === TRUE && $_SESSION['loggued_on_user'] !== "")
         maximum-scale=1,
         user-scalable=0"/>
 	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/authorization.css">
 	<style>
 		body{
 			background: #76b852; /* fallback for old browsers */

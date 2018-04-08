@@ -2,107 +2,140 @@
 <html>
 <head>
 <style type="text/css">
-body {
-	background-color: #000;
-}
-#primary_nav_wrap {
-	background-color: rgba(0 0 0 0.1);
-}
-#primary_nav_wrap ul
-{
-	position:relative;
-	float:left;
-	margin:0;
-	padding:0
-}
 
-#primary_nav_wrap ul a
-{
-	display:block;
-	color: #fff;
-	font-size: 21px;
-	padding:0 20px;
-	font-family: "MyriadPro";
-}
-
-#primary_nav_wrap ul a:hover
-{
-	background: rgba(0, 0, 0, 0.4);
-	-moz-transition-property: rgba(0, 0, 0, 0.4), color; /*SMOOTH CHANGE BG FOR HOVER*/
-	-moz-transition-duration: 0.8s;
-	-moz-transition-timing-function: ease-in;
-	-webkit-transition-property: rgba(0, 0, 0, 0.4), color;
-	-webkit-transition-duration: 1s;
-	-o-transition-property: rgba(0, 0, 0, 0.4);
-	-o-transition-duration: 0.8s;
-	color: #000;
-}
-
-#primary_nav_wrap ul li
-{
-	position:relative;
-	float:left;
-	margin:0;
-	padding:0
-}
-
-#primary_nav_wrap ul li.current-menu-item
-{
-	background:#ddd
-}
-
-#primary_nav_wrap ul li:hover
-{
-	background:#f6f6f6
-}
-
-#primary_nav_wrap ul ul
-{
-	display:none;
-	position:absolute;
-	top:100%;
-	left:0;
-	background:#fff;
-	padding:0;
-	text-align: center;
-}
-
-#primary_nav_wrap ul ul li
-{
-	float:none;
-}
-
-#primary_nav_wrap ul ul a
-{
-	line-height:120%;
-	padding:10px 15px
-}
-
-#primary_nav_wrap ul ul ul
-{
-	top:0;
-	left:100%
-}
-
-#primary_nav_wrap ul li:hover > ul
-{
-	display:block
-}
 </style>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="menu-items clearfix" id="primary_nav_wrap">
-<ul>
-   <li><a href='/php/logout.php'>Currently: </a>
-    <ul>
-      <li><a href="change-pass.php">change password</a></li>
-      <li><a href="my-cart.php">review my cart</a></li>
-      <li><a href="logout.php">logout</a></li>
-    </ul>
-    <li><a href='/php/logout.php'>Currently: </a>
-    <li><a href='/php/logout.php'>Currently: </a>
-  </li>
-</ul>
+<div class="price-policy">
+	<aside class="category">
+		<ul class="menu">
+			<li class="menu_item">
+				<a href="#">fruits</a>
+				<ul class="sub-menu">
+					<li class="sub-menu_item">
+						<a href="#">paket</a>
+					</li>
+					<li class="sub-menu_item">
+						<a href="#">ne paket</a>
+					</li>
+				</ul>
+			</li>
+			<li class="menu_item">
+				<a href="#">vegies</a>
+				<ul class="sub-menu">
+					<li class="menu_item">
+						<a href="#">paket</a>
+					</li>
+					<li class="menu_item">
+						<a href="#">ne paket</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</aside>
+	<div class="price-package">
+		<div class="plan-name">
+			Redmere Farms Carrots 1Kg
+		</div>
+		<img src='https://img.tesco.com/Groceries/pi/205/0000003266205/IDShot_540x540.jpg'>
+		<div class="price-amount">
+			$ 6.90
+		</div>
+		<button type="submit" formmethod="post">Add to cart</button>
+		<div class="details">
+			<p>
+				[id_product] => 1
+			</p>
+			<p>
+				[category] => Vegetables
+			</p>
+			<p>
+				[sub_category] => Packed
+			</p>
+		</div>
+	</div>
+	<div class="price-package">
+		<div class="plan-name">
+			Redmere Farms Carrots 1Kg
+		</div>
+		<img src='https://img.tesco.com/Groceries/pi/205/0000003266205/IDShot_540x540.jpg'>
+		<div class="price-amount">
+			$ 6.90
+		</div>
+		<div class="details">
+			<p>
+				[id_product] => 1
+			</p>
+			<p>
+				[category] => Vegetables
+			</p>
+			<p>
+				[sub_category] => Packed
+			</p>
+		</div>
+	</div>
+	<div class="price-package">
+		<div class="plan-name">
+			Redmere Farms Carrots 1Kg
+		</div>
+		<img src='https://img.tesco.com/Groceries/pi/205/0000003266205/IDShot_540x540.jpg'>
+		<div class="price-amount">
+			$ 6.90
+		</div>
+		<div class="details">
+			<p>
+				[id_product] => 1
+			</p>
+			<p>
+				[category] => Vegetables
+			</p>
+			<p>
+				[sub_category] => Packed
+			</p>
+		</div>
+	</div>
+	<div class="price-package">
+		<div class="plan-name">
+			Redmere Farms Carrots 1Kg
+		</div>
+		<img src='https://img.tesco.com/Groceries/pi/205/0000003266205/IDShot_540x540.jpg'>
+		<div class="price-amount">
+			$ 6.90
+		</div>
+		<div class="details">
+			<p>
+				[id_product] => 1
+			</p>
+			<p>
+				[category] => Vegetables
+			</p>
+			<p>
+				[sub_category] => Packed
+			</p>
+		</div>
+	</div>
+	<div class="price-package">
+		<div class="plan-name">
+			Redmere Farms Carrots 1Kg
+		</div>
+		<img src='https://img.tesco.com/Groceries/pi/205/0000003266205/IDShot_540x540.jpg'>
+		<div class="price-amount">
+			$ 6.90
+		</div>
+		<div class="details">
+			<p>
+				[id_product] => 1
+			</p>
+			<p>
+				[category] => Vegetables
+			</p>
+			<p>
+				[sub_category] => Packed
+			</p>
+		</div>
+	</div>
 </div>
 </body>
 </html>

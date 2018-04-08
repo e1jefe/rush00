@@ -39,6 +39,7 @@
   width: 100%;
   border: 0;
   padding: 15px;
+  margin-bottom: 10px;
   color: #FFFFFF;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
@@ -82,6 +83,7 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #528354, #314e32);

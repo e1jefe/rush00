@@ -664,19 +664,65 @@ img{
 		margin-bottom: 11px;
 	}
 
+	.price-policy {
+		display: inline-block;
+		vertical-align: top;
+	}
+
 		.price-package{
-			margin: 15px;
-			padding: 3% 7%;
+			box-sizing: border-box;
+			padding: 1%;
 			display: inline-block;
-			background: #d3cfcf;
 			text-align: center;
 			transition: box-shadow .2s;
+			width: 20%;
+			vertical-align: top;
 		}
 
 			.price-package:hover{
-				 -webkit-box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.25);
-					-moz-box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.25);
-						 box-shadow: 20px 20px 10px 0px rgba(0,0,0,0.25);
+				-webkit-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.25);
+				-moz-box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.25);
+				box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.25);
+			}
+
+			.price-package input[type="submit"], button {
+			    -webkit-box-sizing: content-box;
+			       -moz-box-sizing: content-box;
+			            box-sizing: content-box;
+			}
+			.price-package input[type="submit"], button {
+				background: none;
+				border: 0;
+				color: #737070;
+				font-family: "MyriadPro";
+				font-size: 25px;
+				cursor: pointer; 
+				line-height: normal;
+				overflow: visible;
+				padding: 10px;
+				-webkit-appearance: button; /* for input */
+				-webkit-user-select: none; /* for button */
+				   -moz-user-select: none;
+				    -ms-user-select: none;
+			}
+			.price-package input[type="submit"], button:hover
+			{
+				background: rgba(0, 0, 0, 0.4);
+				-moz-transition-property: rgba(0, 0, 0, 0.4); /*SMOOTH CHANGE BG FOR HOVER*/
+					-moz-transition-duration: 0.8s;
+					-webkit-transition-property: rgba(0, 0, 0, 0.4);
+					-webkit-transition-duration: 1s;
+					-o-transition-property: rgba(0, 0, 0, 0.4);
+					-o-transition-duration: 0.8s;
+				color: #000;
+			}
+			.price-package input::-moz-focus-inner, button::-moz-focus-inner {
+				border: 0;
+				padding: 0;
+				outline: none;
+			}
+			.price-package input[type="submit"], button:focus {
+				outline: none;
 			}
 
 		@media (max-width: 925px) {
@@ -693,11 +739,6 @@ img{
 			}
 		}
 
-		.price-policy .price-package:nth-child(2){
-			margin-right: 27px;
-			margin-left: 27px;
-		}
-
 			.plan-name{
 				margin-bottom: 51px;
 				color: #7d7b7b;
@@ -708,15 +749,9 @@ img{
 				text-align: center;
 			}
 
-				.plan-name-type{
-					color: #afacac;
-					font-family: "MyriadPro";
-					font-size: 33px;
-					line-height: 35px;
-				}
-
-			.price-package p{
-				margin-bottom: 16px;
+			.price-package img{
+				display: block;
+				margin: 0 auto 16px;
 				color: #4e4e4e;
 				font-family: "MyriadPro";
 				font-size: 32px;
@@ -732,22 +767,107 @@ img{
 			}
 
 			.details{
-				padding: 13px 19px 11px 18px;
-				display: inline-block;
-				vertical-align: middle;
-				text-align: center;
-				border-radius: 13px;
-				background-color: #71ae5a;
-				color: #e9ede9;
-				font-family: "MyriadPro";
-				font-size: 16px;
-				line-height: 17px;
+				display: none;
 			}
 
 				.details:hover{
 					background-color: #a7cd98;
 					cursor: pointer;
 				}
+
+		.category {
+			display: inline-block;
+			width: 10%;
+			vertical-align: top;
+			margin-right: 10px;
+		}
+		a{
+	text-decoration: none;
+	color: inherit;
+}
+ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+.menu{
+	position: relative;
+	width: 500px;
+	height: 35px;
+	margin: 0;
+	z-index: 15;
+	-webkit-transition: all 0.5s ease;
+	   -moz-transition: all 0.5s ease;
+	    -ms-transition: all 0.5s ease;
+	     -o-transition: all 0.5s ease;
+	        transition: all 0.5s ease;
+    color: #7d7b7b;
+	font-family: "MyriadPro";
+	font-size: 33px;
+	font-weight: 600;
+	line-height: 35px;
+}
+	.menu_item{
+		width: 21%;
+		line-height: 35px;
+		background: #528354;
+		color: #fff;
+		padding: 10px;
+		position: relative;
+		display: block;
+		border: 1px solid #fff;
+		
+	}
+	.menu_item a{
+		line-height: 35px;
+		display: block;
+		background: #528354;
+	}
+	.menu_item a:hover {
+		background: #528354;
+	}
+	.sub-menu_item {
+		opacity: 1;
+	}
+	.sub-menu_item a {
+		display: block;
+		background: #629d64;
+		color: #fff;
+    padding: 10px;
+	}
+
+	.menu_item:hover{
+		height: 35px;
+		color: #000;
+		cursor: pointer;
+	}
+	.menu_item:hover > .sub-menu{
+		display: block;
+		background: #528354;
+		width: 96%;
+	}
+.sub-menu{
+	position: relative;
+    top: -125%;
+    left: 111%;
+	width: 100%;
+	display: none;
+}
+	.sub-menu .menu_item{
+		width: 98%;
+		background: #00e600;
+	}
+	.sub-menu .sub-menu{
+		top: 0;
+		left: 100%;
+	}
+	.menu_item .sub-menu .sub-menu{
+		top: -35px;
+		left: 100%;
+	}
+	.sub-menu .sub-menu .menu_item{
+		background: #ace600;
+	}
 
 /*END NUTRITION (PRICE)*/
 
