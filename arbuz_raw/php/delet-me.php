@@ -74,10 +74,13 @@ if ($_SESSION['is_log'] === TRUE && $_SESSION['loggued_on_user'] !== "")
 	</style>
 </head>
 <body>
+<?php
+	Include "header.php";
+?>
 	<div class="container">
 		<p class="message">
 			<?php 
-				echo $message . '<a href="../index.php">Back on main page</a>';
+				echo $message . '<a href="index.php">Back on main page</a>';
 			?>
 		</p>
 	</div>

@@ -10,6 +10,7 @@
 		maximum-scale=1,
 		user-scalable=0"/>
 	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/authorization.css">
 	<style>
 		.form{
@@ -18,6 +19,10 @@
 	</style>
 	<title>Fructo</title>
 </head>
+<?php
+	session_start();
+	Include "header.php";
+?>
 <section class="login-page">
   <div class="form">
 		<form class="register-form" action="change-pass.php" method="post">
@@ -107,8 +112,8 @@ if ($error === 1)
 		<p class="message">
 		<?php 
 			if ($error === 0)
-				echo $message . '<a href="../index.php"> Back to shopping</a>';
-			else
+				echo $message . '<a href="index.php"> Back to shopping</a>';
+			else if ($_POST['submit'] === 'OK' && $error === 1)
 				echo '<i>' . $message . '</i>';
 		?>
 		</p>

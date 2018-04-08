@@ -9,23 +9,21 @@
         minimum-scale=1,
         maximum-scale=1,
         user-scalable=0"/>
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
 	<title>Fructo</title>
 </head>
-<?php session_start(); 
-// $_SESSION["loggued_on_user"];
-// $_SESSION['is_log'];
+<?php session_start();
 ?>
 <body><a name="home"></a>
 	<section class="home">
 		<div class="container">
-			<?php Include "php/header.php"; ?>
+			<?php Include "header.php"; ?>
 			<div class="slogan">
 				Sweet and delicious exotic fruits
 			</div>
 			<div class="single-fruit">
-				<img src="img/hidric.png" alt="Hidric">
+				<img src="../img/hidric.png" alt="Hidric">
 			</div>
 		</div>
 	</section>
@@ -46,7 +44,7 @@
 				</p>
 			</div>
 			<div class="about-pic">
-				<img src="img/srez.png" alt="hydric_lengthwise">
+				<img src="../img/srez.png" alt="hydric_lengthwise">
 			</div>
 			
 		</div>
@@ -63,27 +61,27 @@
 				</p>
 			</div>
 			<div class="arbuz-ingridients">
-				<img src="img/arbuz.png" alt="arbuz">
+				<img src="../img/arbuz.png" alt="arbuz">
 				<div class="protein">
-					<img src="img/protein.png" alt="protein" >
+					<img src="../img/protein.png" alt="protein" >
 					<p>
 						Protein  0,63g
 					</p>
 				</div>
 				<div class="calories">
-					<img src="img/calories.png" alt="calories" >
+					<img src="../img/calories.png" alt="calories" >
 					<p>
 						Calories  35kcal
 					</p>
 				</div>
 				<div class="water">
-					<img src="img/water.png" alt="water" >
+					<img src="../img/water.png" alt="water" >
 					<p>
 						Water  92%
 					</p>
 				</div>
 				<div class="fat">
-					<img src="img/fat.png" alt="fat" >
+					<img src="../img/fat.png" alt="fat" >
 					<p>
 						Fat 0,63g
 					</p>
@@ -118,7 +116,7 @@
 	<footer>
 		<div class="container">
 			<nav class="menu-bottom">
-				<a href="#home">
+				<a href="index.php">
 					Home
 				</a>
 				<a href="#about">
@@ -127,13 +125,13 @@
 				<a href="#features">
 					Features
 				</a>
-				<a href="#buy">
+				<a href="mybasket.php">
 					Buy now
 				</a>
 			</nav>
 			<div class="btn-home">
 				<a href="#home">
-					<img src="img/button_home.png" alt="home">
+					<img src="../img/button_home.png" alt="home">
 				</a>
 			</div>
 			<div class="copyrights">

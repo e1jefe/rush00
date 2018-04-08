@@ -32,6 +32,8 @@ if ($_POST['login'] !== "" && $_POST['passwd'] !== "" && $_POST['phone-nbr'] !==
 				{
 					$file_cont[] = $arr;
 					$message = "Your account is created. ";
+					$_SESSION['loggued_on_user'] = $_POST['login'];
+					$_SESSION['is_log'] = TRUE;
 				}
 				$serializedData = serialize($file_cont);
 				file_put_contents($file, $serializedData);
@@ -75,6 +77,7 @@ else
         maximum-scale=1,
         user-scalable=0"/>
 	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
 	<style>
 		body{
 			background: #76b852; /* fallback for old browsers */
@@ -116,13 +119,17 @@ else
 	</style>
 </head>
 <body>
+<?php
+	Include "header.php";
+?>
 	<div class="container">
 		<p class="message">
-			<?php echo $message;
+			<?php
+				echo $message;
 				if ($error === -1)
-					echo '<a href="../sign-in.html">Now, please login.</a>';
+					echo '<a href="index.php">Back to main page.</a>';
 				else
-					echo '<a href="../create.html">Create an account</a>';
+					echo '<a href="create1.php">Create an account</a>';
 			?>
 		</p>
 	</div>

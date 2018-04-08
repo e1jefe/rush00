@@ -95,12 +95,11 @@ else
 			<?php 
 			if ($error !== 1)
 			{
-				echo $message . ' To continue click ' . '<a href="../index.php">here.</a>';
-				// header("index.html");
+				echo $message . ' To continue click ' . '<a href="index.php">here.</a>';
     			exit;
     		}
 			else
-				echo $message . '<a href="../sign-in.html">Please try again.</a>';
+				echo $message . '<a href="sign-in.php">Please try again.</a>';
 			?>
 		</p>
 	</div>

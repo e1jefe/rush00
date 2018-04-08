@@ -9,13 +9,17 @@
 		minimum-scale=1,
 		maximum-scale=1,
 		user-scalable=0"/>
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/authorization.css">
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/authorization.css">
 	<title>Fructo</title>
 </head>
+<?php
+	Include "header.php";
+?>
 <section class="login-page">
   <div class="form">
-		<form class="register-form" action="php/create.php" method="post">
+		<form class="register-form" action="create.php" method="post">
 	 	<p class="register-form_title">
 			Create an account
 		</p>
@@ -25,7 +29,7 @@
 	  	<input type="email" name="email" placeholder="email" value=""/>
 	  	<input type="text" name="name" placeholder="Name: only latin letters" value=""/>
 	  	<button name="submit" value="OK" />create</button>
-	  	<p class="message">Already registered? <a href="sign-in.html">Sign In</a></p>
+	  	<p class="message">Already registered? <a href="sign-in.php">Sign In</a></p>
 		</form>
 	</div>
 </section>
