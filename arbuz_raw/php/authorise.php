@@ -26,6 +26,11 @@ if (auth($_POST['login'], $_POST['passwd']) === TRUE)
 {
 	$_SESSION['loggued_on_user'] = $_POST['login'];
 	$_SESSION['is_log'] = TRUE;
+	if ($_SESSION['loggued_on_user'] === 'admin')
+	{
+		header("Location: admin.php");
+		exit;
+	}
 	$message = "Your account is autorized.";
 }
 else

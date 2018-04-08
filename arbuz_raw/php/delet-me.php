@@ -17,6 +17,7 @@ if ($_SESSION['is_log'] === TRUE && $_SESSION['loggued_on_user'] !== "")
 			unset($file_cont[$key]['email']);
 			unset($file_cont[$key]['name']);
 			unset($file_cont[$key]);
+			$file_cont = array_values($file_cont);
 			$serializedData = serialize($file_cont);
 			file_put_contents($file, $serializedData);
 			$error = 0;
